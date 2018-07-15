@@ -1,7 +1,7 @@
 import sys
 import telnetlib
 import time
-
+from datetime import datetime
 
 class Ptt(object):
     def __init__(self, host, user, password):
@@ -109,10 +109,13 @@ def main():
     password = 'Your PTT Password'
     ptt = Ptt(host, user, password)
     time.sleep(1)
-    if ptt.is_connect():
+    '''if ptt.is_connect():
         if ptt.login():
-            ptt.post('test', '發文文字測試', '這是一篇測試,哇哈哈')
-    ptt.logout()
+            ptt.post('test', '發文文字測試', '這是一篇測試,哇哈哈')'''
+    if ptt.is_connect():
+       if ptt.login():
+            print(datetime.now(), '登入成功')
+            ptt.logout()
 
 
 if __name__ == "__main__":
